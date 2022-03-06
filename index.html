@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Linking Style sheet below -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking JavaScript Below -->
+    <script src="app.js" defer></script>
+    <title>Clock JS</title>
+</head>
+<body>
+    <main id="clock">
+        <div id="loaderBound">
+            <!-- loaderBound is just a band around the clock that completes its loading once the day is complete -->
+            <div id="clockDisplay">
+                
+            </div>
+           
+        </div>
+    </main>
+    <footer id="copyrightContainer"></footer>
+
+
+    <template id="clockDisplayTemplate">
+        <!-- Clock display will contain the time and date of the day. This could be turned into a template-->
+        <div id="clockDisplay">
+            <div id="timeContainer"></div>
+            <div id="dateContainer"></div>
+        </div>
+    </template>
+</body>
+</html>
