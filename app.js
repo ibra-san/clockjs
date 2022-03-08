@@ -1,9 +1,4 @@
-/* Clock JS
-    -> This is as simple JS clock with Date that is all. 
 
-    3. Getting the date. That is much more indirect than time. 
-        3.1: Create a function for Date. 
-*/ 
 
 const clockTemplate = document.querySelector("#clockDisplayTemplate").content; // template content
 const clockTemCopy = document.importNode(clockTemplate, true);
@@ -14,7 +9,33 @@ const clockDisplay = document.querySelector("#clockDisplay");
 const hours = clockTemCopy.querySelector("#h"); 
 const seconds = clockTemCopy.querySelector("#s");
 const minutes = clockTemCopy.querySelector("#m");
-const separator = clockTemCopy.querySelector("#separator");
+const separator1 = clockTemCopy.querySelector("#separator1");
+const separator2 = clockTemCopy.querySelector("#separator2");
+const clock = document.querySelector('#clock'); 
+
+
+let waitMins = (10*60*1000)
+const loaded = () => { 
+    const today = new Date(); 
+    let hour = today.getHours();
+   let progressValue = 0; 
+   let progressStop = Math.round((hour/24)*100); 
+   while (progressValue !== progressStop) { 
+       progressValue++; 
+   }
+   console.log(progressStop);
+   clockTime.style.background = `conic-gradient(
+        rgba(0,0,0,0.9) ${progressValue*3.6}deg, 
+        rgba(25,25,25,0.1) ${progressValue*3.6}deg
+    )`; 
+   return progressValue;
+}
+
+loaded();
+
+let progress = setInterval (() => { 
+    loaded();
+}, waitMins ) 
 
 
 
@@ -28,8 +49,18 @@ const time = () => { // Time function.
     m = checkTime(m);// adds zeros before mintues if the number is less than 10
     s = checkTime(s);// adds zeros before seconds if the number is less than 10
 
-    clockTime.textContent = h + ":" + m + ":" + s ;
+    hours.textContent = h;
+    minutes.textContent = m ;
+    seconds.textContent = s;
+    separator1.textContent = ":";
+    separator2.textContent = ":";
+
+    clockTime.appendChild(seconds, separator1, minutes, separator2, hours);
+
+
+    /* clockTime.textContent = hours.innerHTML + separator.innerHTML+ minutes.innerHTML + separator.innerHTML+ seconds.innerHTML ; */
     clockDisplay.appendChild(clockTime);
+   
 }
 
 const date = () => { 
@@ -53,8 +84,10 @@ function render () {
     setTimeout(render, 1000);
 }
 
-clockDisplay.onload = render(); // This basically says when clock display component is loaded, render the run the following function. Now I could have used window.onload = render(), that is dangerous, because if there is a function in the window has the same name it could either over right this function or this function might over right other functions. 
 
+setInterval (() => {  
+    render();
+}, 1000);
 
 function checkTime (i) { // This function checks if whether the numbers in time are less than or greater than 10.
     if (i < 10) { i = "0"+i}

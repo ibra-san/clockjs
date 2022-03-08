@@ -41,6 +41,7 @@ body {
     min-width: 30%;
     border-radius: 1rem;
 
+
 }
 
 #clockDisplay {
@@ -55,6 +56,7 @@ body {
     max-width: 100%;
     padding: 5%;
 
+
 }
 
 #timeContainer {
@@ -67,6 +69,9 @@ body {
         inset -20px -20px 60px #353c3e;
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #dateContainer {
@@ -80,4 +85,56 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     margin-top: 2%;
+}
+
+#s,
+#h,
+#m {
+    min-width: 25%;
+}
+
+@media screen and (max-width: 950px) {
+    #timeContainer {
+        font-size: 3em;
+    }
+
+    #loaderBound {
+        min-width: 50%;
+    }
+
+    #clockDisplay {
+        min-width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #timeContainer {
+        font-size: 2rem;
+    }
+
+    #dateContainer { 
+        font-size: 1.4rem;
+    }
+
+    #loaderBound {
+        min-width: 70%;
+    }
+
+    #clockDisplay {
+        min-width: 70%;
+    }
+}
+
+@media  screen and (max-width: 350px) {
+    #clockDisplay { 
+        min-height: 50vh;
+    }
+    #timeContainer { 
+        font-size: 1.3rem;
+    }
+
+    #dateContainer { 
+        font-size: 0.9rem; 
+    }
+
 }
