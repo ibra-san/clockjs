@@ -19,15 +19,13 @@ html {
 }
 
 body {
-    border: 2px solid yellow;
     margin: 2rem;
     border-radius: 10px;
     min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+
 }
 
 #clock {
@@ -39,30 +37,47 @@ body {
 }
 
 #loaderBound {
-    border: 2px solid black;
-    width: 80%;
-    padding: 1%;
+    max-width: 80%;
+    min-width: 30%;
     border-radius: 1rem;
 
 }
 
 #clockDisplay {
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1%;
-    border-radius: 1rem;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    max-width: 100%;
+    padding: 5%;
+
 }
 
-#timeContainer { 
+#timeContainer {
     color: white;
     font-size: 4rem;
+    font-weight: 100;
+    border-radius: 10px;
+    background: #2e343600;
+    box-shadow: inset 20px 20px 60px #272c2e70,
+        inset -20px -20px 60px #353c3e;
+    width: 100%;
+    text-align: center;
 }
 
-#dateContainer { 
-    color: rgb(51, 0, 0);
+#dateContainer {
+    color: white;
     font-size: 1.4rem;
-    font-weight: 900;
+    font-weight: 200;
+    border-radius: 10px;
+    background: #2e343600;
+    box-shadow: inset 20px 20px 60px #272c2e71,
+        inset -20px -20px 60px #353c3e00;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 2%;
 }

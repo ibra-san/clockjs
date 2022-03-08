@@ -11,6 +11,13 @@ const clockTime = clockTemCopy.querySelector("#timeContainer");
 const clockDate = clockTemCopy.querySelector('#dateContainer');
 const clockDisplay = document.querySelector("#clockDisplay");
 
+const hours = clockTemCopy.querySelector("#h"); 
+const seconds = clockTemCopy.querySelector("#s");
+const minutes = clockTemCopy.querySelector("#m");
+const separator = clockTemCopy.querySelector("#separator");
+
+
+
 const time = () => { // Time function. 
     const today = new Date(); 
     let h = today.getHours(); 
@@ -35,7 +42,7 @@ const date = () => {
     let year = today.getFullYear();
     let dayDate = today.getDate()
 
-    clockDate.textContent = ` ${day} ${dayDate} -  ${month} - ${year}`;
+    clockDate.textContent = ` ${day}, ${dayDate}   ${month}  ${year}`;
     clockDisplay.appendChild(clockDate)
 
 }
